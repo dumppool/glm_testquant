@@ -47,6 +47,7 @@ int inline cmp_func(const Joint & a,const Joint & b)
 struct Frame
 {
   int frameIdx;
+  float rootpos[3];
   vector<Joint> joint_rotations;
 };
 
@@ -109,6 +110,11 @@ void inline BVH::QueryOneFrame(int Idx, Frame&frame)
 	int i,j;
 	frame.frameIdx = Idx;
 	frame.joint_rotations.clear();
+	
+	for(i=0;i<3;i++)
+	  frame.rootpos[i] = frame_dat[joints[0]->channels[i]->index];
+	 
+
 	for (i = 0; i < joints.size(); i++)
 	{
 		//printf("%s -", joints[i]->name.c_str() );
