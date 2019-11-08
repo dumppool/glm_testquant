@@ -1,6 +1,7 @@
 ﻿#include <fstream>
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
 #include "BVH.h"
 
 
